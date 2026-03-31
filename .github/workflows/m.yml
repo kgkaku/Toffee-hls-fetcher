@@ -35,10 +35,10 @@ jobs:
     
     - name: Decode and create main.py
       env:
-        MAIN_PYZX: ${{ secrets.MAIN_PY }}
+        MAIN_PY_BASE64: ${{ secrets.MAIN_PY }}
       run: |
         echo "🔓 Decoding main.py from base64..."
-        echo "$MAIN_PYZX" | base64 -d > main.py
+        echo "$MAIN_PY_BASE64" | base64 -d > main.py
         echo "✅ main.py created successfully"
         python -m py_compile main.py && echo "✅ Syntax OK" || exit 1
     
